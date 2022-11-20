@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set -eux
+
+bin/rails db:create
+bin/rails db:migrate
+
+exec "$@"
