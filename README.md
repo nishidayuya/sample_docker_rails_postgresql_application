@@ -1,24 +1,37 @@
-# README
+# SampleDockerRailsPostgresqlApplication
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A sample Rails application with PostgreSQL on Docker Compose.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Docker Compose
 
-* System dependencies
+## Usage
 
-* Configuration
+```console
+$ docker compose up -d
+```
 
-* Database creation
+Open http://localhost:3000/ or http://localhost:3000/articles by your web browser.
 
-* Database initialization
+### (Optional) Import sample data
 
-* How to run the test suite
+```console
+$ docker compose run --rm app bin/rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+### (Optional) Change development configuration
 
-* Deployment instructions
+If you need change development configuration, you can use `.env` file after copy from `.env.sample`.
 
-* ...
+```console
+$ cp -avi .env.sample .env
+$ vi .env   # Edit .env file
+$ docker compose up -d --force-recreate
+```
+
+## Uninstall
+
+```console
+$ docker compose down -v
+```
